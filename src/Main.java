@@ -151,7 +151,8 @@ public class Main {
 		}
 		
 		Mob mob = mobs.get(i);
-		if(mob.getCurrentStatus().getName().contentEquals("Alive")) {
+		if(mob.getCurrentStatus().getName().contentEquals("Alive") 
+				|| mob.getCurrentStatus().getName().contentEquals("Frenzied")) {
 			Attack attack = null;
 			mob.addObserver(character);
 			

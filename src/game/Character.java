@@ -18,7 +18,7 @@ public abstract class Character implements Observer, Comparable<Character> {
 	private boolean weaponEquipped = false;
 	
 	protected Attack attack;
-	List<WeaponCraft> bag = new ArrayList<>();
+	protected List<WeaponCraft> bag = new ArrayList<>();
 	
 	public Character(String name) {
 		this.name = name;
@@ -250,9 +250,9 @@ public abstract class Character implements Observer, Comparable<Character> {
 			Random chance = new Random();
 			int value = -1;
 			Mob mob = (Mob) subject;
-			if(mob.getHp() <= 0) {
+			if(mob.getCurrentStatus().getName().contentEquals("Dead")) {
 				System.out.println("\nItems added to bag:");
-				for(int i = 0; i < 8; i++) {
+				for(int i = 0; i < mob.bag.size(); i++) {
 					value = chance.nextInt(2);
 					if(value == 0) {
 						WeaponCraft drop = mob.bag.get(i);
